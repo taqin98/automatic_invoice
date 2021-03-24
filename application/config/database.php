@@ -73,39 +73,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-$db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'master_invoice',
-	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
-	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
-	'cache_on' => FALSE,
-	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'save_queries' => TRUE
-);
-
-
-// config deploy heroku
-// $url = getenv('JAWSDB_MARIA_URL');
-// $dbparts = parse_url($url);
-
 // $db['default'] = array(
 // 	'dsn'	=> '',
-// 	'hostname' => $dbparts['host'],
-// 	'username' => $dbparts['user'],
-// 	'password' => $dbparts['pass'],
-// 	'database' => ltrim($dbparts['path'],'/'),
+// 	'hostname' => 'localhost',
+// 	'username' => 'root',
+// 	'password' => '',
+// 	'database' => 'master_invoice',
 // 	'dbdriver' => 'mysqli',
 // 	'dbprefix' => '',
 // 	'pconnect' => FALSE,
@@ -121,3 +94,30 @@ $db['default'] = array(
 // 	'failover' => array(),
 // 	'save_queries' => TRUE
 // );
+
+
+//config deploy heroku
+$url = getenv('JAWSDB_MARIA_URL');
+$dbparts = parse_url($url);
+
+$db['default'] = array(
+	'dsn'	=> '',
+	'hostname' => $dbparts['host'],
+	'username' => $dbparts['user'],
+	'password' => $dbparts['pass'],
+	'database' => ltrim($dbparts['path'],'/'),
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
