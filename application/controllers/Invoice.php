@@ -8,7 +8,7 @@ class Invoice extends CI_Controller {
 		parent::__construct();
 		//Do your magic here
 		$this->load->library('session');
-		// $this->load->library('Pdf');
+		$this->load->library('Pdf');
 		$this->load->model('PelangganModel');
 		$this->load->model('ProductModel');
 	}
