@@ -53,7 +53,8 @@ if($this->session->userdata('level')) redirect('users/dashboard_admin','refresh'
     <div class="container">
        <div class="card col-md-6 mx-auto mt-4">
         <div class="card-header text-center">
-            <img src="<?= base_url('assets/images/sami.jpg'); ?>" class="card-img">
+            <!-- <img src="<?= base_url('assets/images/sami.jpg'); ?>" class="card-img"> -->
+            <img src="https://blog.porinto.com/wp-content/uploads/2018/07/logo-apple-696x576.jpg" class="card-img">
         </div>
         <?php if ($this->session->flashdata('danger') !== '') {
             ?>

@@ -49,7 +49,7 @@ class Invoice extends CI_Controller {
         $pdf->SetFont('Arial','B',16);
         // mencetak string 
         $pdf->Cell(190,15,'Nama Perusahaan Penyedia Layanan',1,1,'C', true);
-        // $pdf->Image('https://blog.porinto.com/wp-content/uploads/2018/07/logo-apple-696x576.jpg',40,12,12,10, 'JPG');
+        $pdf->Image('https://blog.porinto.com/wp-content/uploads/2018/07/logo-apple-696x576.jpg',40,12,12,10, 'JPG');
         $pdf->SetFont('Arial','',10);
         $pdf->SetTextColor(0,0,0);
         $pdf->Cell(190,7,'Alamat Lengkap dengan nama jalan berserta kode pos wilayah - nomor hp/wa',0,1,'C');
