@@ -21,7 +21,7 @@ class Product extends CI_Controller {
 		var_dump($this->input->post('upload_file', TRUE));
 
 		// $config['upload_path'] = './assets/data/';
-		$config['upload_path'] = 'assets/data/';
+		$config['upload_path'] = base_url().'assets/data/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
 		$config['max_size'] = 2000;
 		$config['overwrite'] = TRUE;
