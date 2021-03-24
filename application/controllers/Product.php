@@ -30,33 +30,33 @@ class Product extends CI_Controller {
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
 
-		if (!$this->upload->do_upload('upload_file')) 
-		{
-			$error = (object) array('error' => $this->upload->display_errors());
-			var_dump($error);
-		} 
-		else 
-		{
-			$data = (object) array('image_metadata' => $this->upload->data());
-			$location = base_url().'assets/data/'.$data->image_metadata['file_name'];
+		// if (!$this->upload->do_upload('upload_file')) 
+		// {
+		// 	$error = (object) array('error' => $this->upload->display_errors());
+		// 	var_dump($error);
+		// } 
+		// else 
+		// {
+		// 	$data = (object) array('image_metadata' => $this->upload->data());
+		// 	$location = base_url().'assets/data/'.$data->image_metadata['file_name'];
 			
-			$produk_data = (object) array(
-				'foto' => $data->image_metadata['file_name'],
-				'nama' => $this->input->post('nama', TRUE),
-				'deskripsi' => $this->input->post('des', TRUE),
-				'panjang' => $this->input->post('panjang', TRUE),
-				'lebar' => $this->input->post('lebar', TRUE),
-				'tinggi' => $this->input->post('tinggi', TRUE),
-				'qty' => $this->input->post('qty', TRUE),
-				'harga' => $this->input->post('harga', TRUE)
-			);
+		// 	$produk_data = (object) array(
+		// 		'foto' => $data->image_metadata['file_name'],
+		// 		'nama' => $this->input->post('nama', TRUE),
+		// 		'deskripsi' => $this->input->post('des', TRUE),
+		// 		'panjang' => $this->input->post('panjang', TRUE),
+		// 		'lebar' => $this->input->post('lebar', TRUE),
+		// 		'tinggi' => $this->input->post('tinggi', TRUE),
+		// 		'qty' => $this->input->post('qty', TRUE),
+		// 		'harga' => $this->input->post('harga', TRUE)
+		// 	);
 
-			var_dump($produk_data);
-			$condition = $this->ProductModel->insertProduct($produk_data);
-			if ($condition) {
-				$this->session->set_flashdata('success','Data Berhasil Di Tambahkan');
-				return redirect('product');
-			}
+		// 	var_dump($produk_data);
+		// 	$condition = $this->ProductModel->insertProduct($produk_data);
+		// 	if ($condition) {
+		// 		$this->session->set_flashdata('success','Data Berhasil Di Tambahkan');
+		// 		return redirect('product');
+		// 	}
 
 			
 		}
