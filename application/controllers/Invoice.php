@@ -124,8 +124,8 @@ class Invoice extends CI_Controller {
         $pdf->Cell(80,10,'Nama pemilik Rekening',0,0,'L');
         $pdf->Cell(45,10,'PELUNASAN 60%','B',0,'R');
         $pdf->Cell(64,10,$this->rupiah($total*60/100),'B',1,'R');
-        $pdf->Output();
-        // $pdf->Output('D','#'.date('dmYHi') . '.pdf');
+        // $pdf->Output();
+        $pdf->Output('D','#'.date('dmYHi') . '.pdf');
 	}
 
 	public function rupiah($angka){
