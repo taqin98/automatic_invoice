@@ -8,8 +8,8 @@ class Invoice extends CI_Controller {
 		parent::__construct();
 		//Do your magic here
 		$this->load->library('session');
-		$this->load->add_package_path( APPPATH . 'third_party/fpdf');
-		$this->load->library('Pdf');
+		// $this->load->add_package_path( APPPATH . 'third_party/fpdf');
+		// $this->load->library('Pdf');
 		$this->load->model('PelangganModel');
 		$this->load->model('ProductModel');
 	}
