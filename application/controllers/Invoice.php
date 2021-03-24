@@ -95,7 +95,7 @@ class Invoice extends CI_Controller {
         foreach ($product as $row){
         	$total+=$row->qty*$row->harga;
             $pdf->Cell(10,40,$nomor++,1,0);
-            $image = $pdf->Image(base_url('assets/data/'). $row->foto, $pdf->getX()+2,$pdf->getY()+2,0,30);
+            $image = $pdf->Image('assets/data/'. $row->foto, $pdf->getX()+2,$pdf->getY()+2,0,30);
             $pdf->Cell(55,40,$image,1,0,'C');
             $pdf->Cell(15,40,$row->panjang . ' cm',1,0,'C');
             $pdf->Cell(15,40,$row->lebar . ' cm',1,0,'C');
@@ -124,8 +124,8 @@ class Invoice extends CI_Controller {
         $pdf->Cell(80,10,'Nama pemilik Rekening',0,0,'L');
         $pdf->Cell(45,10,'PELUNASAN 60%','B',0,'R');
         $pdf->Cell(64,10,$this->rupiah($total*60/100),'B',1,'R');
-        // $pdf->Output();
-        $pdf->Output('D','#'.date('dmYHi') . '.pdf');
+        $pdf->Output();
+        // $pdf->Output('D','#'.date('dmYHi') . '.pdf');
 	}
 
 	public function rupiah($angka){
