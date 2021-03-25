@@ -39,16 +39,14 @@ class Product extends CI_Controller {
 		$foto = "assets/data/".$nm_foto;
 		
 		// if (!$this->upload->do_upload('upload_file')) 
-		if (move_uploaded_file($tmp_lokasi, $foto)) 
+		if (!move_uploaded_file($tmp_lokasi, $foto)) 
 		{
 			// $error = (object) array('error' => $this->upload->display_errors());
-			$error = 'berhasil';
+			$error = 'Gagal Upload';
 			var_dump($error);
 		} 
 		else 
 		{
-			$error = 'gagal upload';
-			var_dump($error);
 			// $data = (object) array('image_metadata' => $this->upload->data());
 			// $location = base_url().'assets/data/'.$data->image_metadata['file_name'];
 			
