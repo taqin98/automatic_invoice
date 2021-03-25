@@ -20,37 +20,37 @@ class Product extends CI_Controller {
 	{
 		var_dump($this->input->post('upload_file', TRUE));
 
-		$config['upload_path'] = './assets/data/';
-		$config['allowed_types'] = 'gif|jpg|png|jpeg';
-		$config['max_size'] = 2000;
-		$config['overwrite'] = TRUE;
+		// $config['upload_path'] = './assets/data/';
+		// $config['allowed_types'] = 'gif|jpg|png|jpeg';
+		// $config['max_size'] = 2000;
+		// $config['overwrite'] = TRUE;
 
 
-		// $nm_foto = $_FILES['upload_file']['name'];
-		// $tmp_lokasi =$_FILES['upload_file']['tmp_name'];
+		$nm_foto = $_FILES['upload_file']['name'];
+		$tmp_lokasi =$_FILES['upload_file']['tmp_name'];
 
 
-		$this->load->library('upload', $config);
-		$this->upload->initialize($config);
+		// $this->load->library('upload', $config);
+		// $this->upload->initialize($config);
 
-		// $foto = "./assets/data/".$nm_foto;
+		$foto = "./assets/data/".$nm_foto;
 		
 
-		if (!$this->upload->do_upload('upload_file')) 
-		// if (!move_uploaded_file($tmp_lokasi, $foto)) 
+		// if (!$this->upload->do_upload('upload_file')) 
+		if (!move_uploaded_file($tmp_lokasi, $foto)) 
 		{
-			$error = (object) array('error' => $this->upload->display_errors());
-			// $error = 'gagal upload';
+			// $error = (object) array('error' => $this->upload->display_errors());
+			$error = 'gagal upload';
 			var_dump($error);
 		} 
 		else 
 		{
-			$data = (object) array('image_metadata' => $this->upload->data());
-			$location = base_url().'assets/data/'.$data->image_metadata['file_name'];
+			// $data = (object) array('image_metadata' => $this->upload->data());
+			// $location = base_url().'assets/data/'.$data->image_metadata['file_name'];
 			
 			$produk_data = (object) array(
-				'foto' => $data->image_metadata['file_name'],
-				// 'foto' => $nm_foto,
+				// 'foto' => $data->image_metadata['file_name'],
+				'foto' => $nm_foto,
 				'nama' => $this->input->post('nama', TRUE),
 				'deskripsi' => $this->input->post('des', TRUE),
 				'panjang' => $this->input->post('panjang', TRUE),
