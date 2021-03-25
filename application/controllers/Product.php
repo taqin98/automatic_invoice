@@ -19,9 +19,6 @@ class Product extends CI_Controller {
 	public function input()
 	{
 		var_dump($_FILES['upload_file']['name']);
-		echo __FILE__ . '<br>';
-		echo dirname(__FILE__) . '<br>';
-		echo __DIR__ . '<br>';
 
 		// $config['upload_path'] = './assets/data/';
 		// $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -36,7 +33,7 @@ class Product extends CI_Controller {
 		// $this->load->library('upload', $config);
 		// $this->upload->initialize($config);
 
-		$foto = "./assets/data/".$nm_foto;
+		$foto = "assets/data/".$nm_foto;
 		
 
 		// if (!$this->upload->do_upload('upload_file')) 
