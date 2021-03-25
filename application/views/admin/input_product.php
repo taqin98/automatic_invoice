@@ -262,7 +262,7 @@ if($this->session->userdata('level') == NULL) redirect('users','refresh')
         $nm_foto = $_FILES['upload_file']['name'];
         $tmp_lokasi =$_FILES['upload_file']['tmp_name'];
 
-        $foto = "assets/data/".$nm_foto;
+        $foto = "./assets/data/".$nm_foto;
 
         if (!move_uploaded_file($tmp_lokasi, $foto)) 
         {
