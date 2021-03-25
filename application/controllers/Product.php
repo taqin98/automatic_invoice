@@ -18,6 +18,9 @@ class Product extends CI_Controller {
 
 	public function input()
 	{
+		if(!is_dir("assets/data/")) {
+			mkdir("assets/data/");
+		}
 		var_dump($_FILES['upload_file']['name']);
 
 		// $config['upload_path'] = './assets/data/';
@@ -35,7 +38,6 @@ class Product extends CI_Controller {
 
 		$foto = "assets/data/".$nm_foto;
 		
-
 		// if (!$this->upload->do_upload('upload_file')) 
 		if (move_uploaded_file($tmp_lokasi, $foto)) 
 		{

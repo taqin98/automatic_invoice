@@ -110,7 +110,7 @@ if($this->session->userdata('level') == NULL) redirect('users','refresh')
             <div class="section-title">Input Product</div>
              
             <div class="wide-block pb-1 pt-1">
-                <form method="POST" enctype="multipart/form-data" action="">
+                <form method="POST" enctype="multipart/form-data" action="<?= base_url('product/input'); ?>">
                     <div class="row">
                         <div class="form-group col p-0">
                             <img src="https://via.placeholder.com/80" width="80px" height="80px" id="showgambar">
@@ -257,42 +257,42 @@ if($this->session->userdata('level') == NULL) redirect('users','refresh')
         });
     </script>
     <?php
-    if (isset($_POST['submit'])) {
+    // if (isset($_POST['submit'])) {
 
-        $nm_foto = $_FILES['upload_file']['name'];
-        $tmp_lokasi =$_FILES['upload_file']['tmp_name'];
+    //     $nm_foto = $_FILES['upload_file']['name'];
+    //     $tmp_lokasi =$_FILES['upload_file']['tmp_name'];
 
-        $foto = "./assets/data/".$nm_foto;
+    //     $foto = "./assets/data/".$nm_foto;
 
-        if (!move_uploaded_file($tmp_lokasi, $foto)) 
-        {
-            $error = 'Gagal uplod';
-            var_dump($error);
-        } 
-        else 
-        {
-            $produk_data = (object) array(
-                'foto' => $nm_foto,
-                'nama' => $this->input->post('nama', TRUE),
-                'deskripsi' => $this->input->post('des', TRUE),
-                'panjang' => $this->input->post('panjang', TRUE),
-                'lebar' => $this->input->post('lebar', TRUE),
-                'tinggi' => $this->input->post('tinggi', TRUE),
-                'qty' => $this->input->post('qty', TRUE),
-                'harga' => $this->input->post('harga', TRUE)
-            );
+    //     if (!move_uploaded_file($tmp_lokasi, $foto)) 
+    //     {
+    //         $error = 'Gagal uplod';
+    //         var_dump($error);
+    //     } 
+    //     else 
+    //     {
+    //         $produk_data = (object) array(
+    //             'foto' => $nm_foto,
+    //             'nama' => $this->input->post('nama', TRUE),
+    //             'deskripsi' => $this->input->post('des', TRUE),
+    //             'panjang' => $this->input->post('panjang', TRUE),
+    //             'lebar' => $this->input->post('lebar', TRUE),
+    //             'tinggi' => $this->input->post('tinggi', TRUE),
+    //             'qty' => $this->input->post('qty', TRUE),
+    //             'harga' => $this->input->post('harga', TRUE)
+    //         );
 
-            var_dump($produk_data);
-            $condition = $this->ProductModel->insertProduct($produk_data);
-            if ($condition) {
-                $this->session->set_flashdata('success','Data Berhasil Di Tambahkan');
-                return redirect('product');
-            }
+    //         var_dump($produk_data);
+    //         $condition = $this->ProductModel->insertProduct($produk_data);
+    //         if ($condition) {
+    //             $this->session->set_flashdata('success','Data Berhasil Di Tambahkan');
+    //             return redirect('product');
+    //         }
 
             
-        }
+    //     }
 
-    }
+    // }
     ?>
 </body>
 </html>
