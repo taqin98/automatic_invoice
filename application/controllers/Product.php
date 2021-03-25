@@ -33,7 +33,7 @@ class Product extends CI_Controller {
 		// $this->load->library('upload', $config);
 		// $this->upload->initialize($config);
 
-		$foto = "./assets/data/".$nm_foto;
+		$foto = "assets/data/".$nm_foto;
 		
 
 		// if (!$this->upload->do_upload('upload_file')) 
