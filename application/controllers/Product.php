@@ -19,7 +19,9 @@ class Product extends CI_Controller {
 	public function input()
 	{
 		var_dump($_FILES['upload_file']['name']);
-		echo dirname(__FILE__);
+		echo __FILE__ . '<br>';
+		echo dirname(__FILE__) . '<br>';
+		echo __DIR__ . '<br>';
 
 		// $config['upload_path'] = './assets/data/';
 		// $config['allowed_types'] = 'gif|jpg|png|jpeg';
