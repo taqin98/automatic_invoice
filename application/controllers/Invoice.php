@@ -124,7 +124,7 @@ class Invoice extends CI_Controller {
         $Pdf->Cell(45,10,'PELUNASAN 60%','B',0,'R');
         $Pdf->Cell(64,10,$this->rupiah($total*60/100),'B',1,'R');
         // $Pdf->Output();
-        $Pdf->Output('D','#'.date('dmYHi') . '.pdf');
+        $Pdf->Output('I','#'.date('dmYHi') . '.pdf');
 	}
 
 	public function rupiah($angka){

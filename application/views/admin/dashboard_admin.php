@@ -180,7 +180,7 @@
                 </ul>
                 <ul class="listview flush transparent image-listview">
                     <li>
-                        <a href="<?= base_url('invoice/check'); ?>" class="item" id="download">
+                        <a href="<?= base_url('invoice/check'); ?>" target="_blank" class="item" id="download">
                             <div class="icon-box bg-primary">
                                 3
                             </div>
@@ -244,6 +244,7 @@
             setTimeout(function(){
                 dropAllData();
             },5000);
+            console.log('click download');
         });
 
         function dropAllData(){
