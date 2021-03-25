@@ -29,15 +29,18 @@ class Product extends CI_Controller {
 		$nm_foto = $_FILES['upload_file']['name'];
 		$tmp_lokasi =$_FILES['upload_file']['tmp_name'];
 
-
 		// $this->load->library('upload', $config);
 		// $this->upload->initialize($config);
 
 		$foto = "assets/data/".$nm_foto;
+		$destination_path = getcwd().DIRECTORY_SEPARATOR;
+		$target_path = $destination_path . 'assets/data/' . basename($_FILES["upload_file"]["name"]);
+		// echo $target_path;
+		// exit();
 		
 
 		// if (!$this->upload->do_upload('upload_file')) 
-		if (!move_uploaded_file($tmp_lokasi, $foto)) 
+		if (!move_uploaded_file($tmp_lokasi, $target_path)) 
 		{
 			// $error = (object) array('error' => $this->upload->display_errors());
 			$error = 'gagal upload';
