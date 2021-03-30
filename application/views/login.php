@@ -54,7 +54,7 @@ if($this->session->userdata('level')) redirect('users/dashboard_admin','refresh'
        <div class="card col-md-6 mx-auto mt-4">
         <div class="card-header text-center">
             <!-- <img src="<?= base_url('assets/images/sami.jpg'); ?>" class="card-img"> -->
-            <img src="https://pdb-lawfirm.id/wp-content/uploads/2019/09/apple-logo-1080x630.jpg" class="card-img">
+            <img src="<?= base_url('assets/images/logo_apple.jpg'); ?>" class="card-img">
         </div>
         <?php if ($this->session->flashdata('danger') !== '') {
             ?>

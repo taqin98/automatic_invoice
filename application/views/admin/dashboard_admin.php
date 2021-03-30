@@ -51,6 +51,15 @@
         .card.product-card .card-body {
             padding: 8px;
         }
+        .show0 {
+            display: none !important;
+        }
+        .show1 {
+            display: none !important;
+        }
+        .show2 {
+            display: block;
+        }
 
     </style>
 </head>
@@ -134,6 +143,7 @@
                                 <div>Input Data Pemesan </div>
                             </div>
                             <?php
+                            $show=0;
                             if ($this->db->get('tb_pelanggan')->num_rows() == 0) {
                                 ?>
                                 <div class="icon-box bg-danger">
@@ -141,6 +151,7 @@
                                 </div>
                                 <?php
                             } else {
+                                $show +=1;
                                 ?>
                                 <div class="icon-box bg-success">
                                     <ion-icon name="checkmark-outline"></ion-icon>
@@ -168,6 +179,7 @@
                                 </div>
                                 <?php
                             } else {
+                                $show +=1;
                                 ?>
                                 <div class="icon-box bg-success">
                                     <ion-icon name="checkmark-outline"></ion-icon>
@@ -180,7 +192,7 @@
                 </ul>
                 <ul class="listview flush transparent image-listview">
                     <li>
-                        <a href="<?= base_url('invoice/check'); ?>" target="_blank" class="item" id="download">
+                        <a href="<?= base_url('invoice/check'); ?>" target="_blank" class="item show<?= $show; ?>" id="download">
                             <div class="icon-box bg-primary">
                                 3
                             </div>
